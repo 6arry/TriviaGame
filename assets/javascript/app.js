@@ -50,7 +50,7 @@ var game = {
         }
         $('#main-section').append('<button id="finished" class="donButton btn btn-success btn-lg btn-block">Finish</button>')
     },
-
+    // COUNT DOWN PROPTERY METTHOD =============================== //
     countDown: function(){
         game.counter--;
         var convertedCounter = timeConverter(game.counter);
@@ -61,7 +61,7 @@ var game = {
             game.done();
         }
     },
-
+    // GAME COMPLETED METHOD ===================================== //
     done: function(){
         $.each($('input[name="question-0"]:checked'), function(){
             if ($(this).val() == questions[0].correctAnswer) {
