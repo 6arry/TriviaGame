@@ -2,3 +2,50 @@
     box-sizing: border-box;
 }
 
+body {
+    background: url(../images/disney-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-size: 100%; */
+    background-attachment: fixed;
+    background-color: #0400e4;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* HOLDS EVERYTHING ON THE PAGE ==================================== */
+.container {
+    width: 600px;
+}
+
+/* TITLE =========================================================== */
+
+.title {
+    font-family: 'Great Vibes', cursive;
+    text-align: center;
+    color: white;
+}
+/* TIME BOARD ====================================================== */
+
+.timeBoard {
+    text-align: center;
+}
+/* MAIN SECTION ==================================================== */
+
+#main-section {
+    overflow: auto;
+    text-align: center;
+    opacity: 0.8;
+    color: black;
+    height: 500px;
+
+}
+/* START BUTTON ==================================================== */
+
+.startButton {
+    /* margin: 10px 0 0 0; */
+}
+/* FINISH BUTTON =================================================== */
+
+#finished {
+    margin: 10px 0 0 0;
+}

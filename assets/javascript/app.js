@@ -38,17 +38,21 @@ var game = {
     correct: 0,
     incorrect: 0,
     counter: 120,
+
+    // TIMER, QUESTIONS, ANSWERS, & FINISH ======================== // 
     start: function(){
         timer = setInterval(game.countDown, 1000);
         $('.timeBoard').prepend('<h3>Time Remaining: <span id="timeLeft">2:00</span></h3>')
         $('#start').remove();
+        $('#timeLeft').attr('style', 'color:green');
+        $('#main-section').attr('style', 'background-color:white')
         for (var i=0;i<questions.length;i++){
             $('#main-section').append('<h3>' + questions[i].question + '</h3>');
             for (var j=0;j<questions[i].answers.length;j++){
                 $('#main-section').append(" <input type='radio' name='question-"+i+"' value='"+questions[i].answers[j]+"'>" + " " + questions[i].answers[j] + " ")
             }
         }
-        $('#main-section').append('<button id="finished" class="donButton btn btn-success btn-lg btn-block">Finish</button>')
+        $('#main-section').append('<br><button id="finished" class="donButton btn btn-success btn-lg" type="submit">Finish</button>')
     },
     // COUNT DOWN PROPTERY METTHOD =============================== //
     countDown: function(){
@@ -135,7 +139,7 @@ var game = {
         });
         this.results();
     },
-
+    // RESULTS OF QUIZ SCREEN ==================================== //
     results: function() {
         clearInterval(timer);
         $('#main-section h3').remove();
@@ -210,10 +214,7 @@ var questions = [
 }];
 
 
-// FUNCTIONS =========================================================== //
-
-
-
+// SCRATCH NOTES =========================================================== //
 
 // function countDown() {
 //     timeLeft = timeLeft - 1;
