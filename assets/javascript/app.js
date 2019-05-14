@@ -27,7 +27,7 @@ var game = {
         timer = setInterval(game.countDown, 1000);
         $('.timeBoard').prepend('<h3>Time Remaining: <span id="timeLeft">2:00</span></h3>')
         $('#start').remove();
-        $('#timeLeft').attr('style', 'color:green');
+        $('#timeLeft').attr('style', 'color:#00bb3e');
         $('#main-section').attr('style', 'background-color:white')
         for (var i=0;i<questions.length;i++){
             $('#main-section').append('<h3>' + questions[i].question + '</h3>');
@@ -134,7 +134,7 @@ var game = {
         $('#main-section').append('<h3>Correct answers: ' + this.correct + '</h3>')
         $('#main-section').append('<h3>Incorrect answers: ' + this.incorrect + '</h3>')
         $('#main-section').append('<h3>Unanswered: ' + (questions.length-(this.incorrect+this.correct)) + '</h3>')
-        $('#main-section').append('<h3>You got </h3><h1 style="color:green">' + (100*(this.correct/questions.length)) + '%</h1>' + '<h3>right!</h3>')
+        $('#main-section').append('<h3>You got </h3><h1 style="color:#00bb3e">' + (100*(this.correct/questions.length)) + '%</h1>' + '<h3>right!</h3>')
 
     }
 }

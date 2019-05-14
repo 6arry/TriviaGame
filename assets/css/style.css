@@ -28,6 +28,7 @@ body {
 
 .timeBoard {
     text-align: center;
+    color: white;
 }
 /* MAIN SECTION ==================================================== */
 
@@ -49,3 +50,5 @@ body {
 #finished {
     margin: 10px 0 0 0;
 }
+
+
