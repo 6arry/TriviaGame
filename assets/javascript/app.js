@@ -15,30 +15,13 @@ $(document).on('click', '#finished', function(){
     //     $('.timeBoard').remove();
     // });
 
-// TIME CONVERSION FUNCTION ================================ //
-function timeConverter(t) {
-    //  Takes the current time in seconds and convert it to minutes and seconds (m:ss).
-    var minutes = Math.floor(t / 60);
-    var seconds = t - (minutes * 60);
-    if (seconds < 10) {
-        seconds = "0" + seconds;
-    } if (minutes === 0) {
-        minutes = "0";
-    } 
-    //     else if (minutes < 10) {
-    //     minutes = "0" + minutes;
-    // }
-    
-    return minutes + ":" + seconds;
-    }
-    
 // GAME OBJECT ==================================================== //
-
+    
 var game = {
     correct: 0,
     incorrect: 0,
-    counter: 120,
-
+    counter: 90,
+    
     // TIMER, QUESTIONS, ANSWERS, & FINISH ======================== // 
     start: function(){
         timer = setInterval(game.countDown, 1000);
@@ -60,7 +43,11 @@ var game = {
         var convertedCounter = timeConverter(game.counter);
         $('#timeLeft').html(convertedCounter);
         // console.log(convertedCounter)
-        if(game.counter<=0){
+        if(game.counter<=60) {
+            $('#timeLeft').attr('style', 'color:yellow')
+        } if (game.counter<=30) {
+            $('#timeLeft').attr('style', 'color:red')
+        } if(game.counter<=0){
             // console.log("Time's UP!!!")
             game.done();
         }
@@ -142,14 +129,33 @@ var game = {
     // RESULTS OF QUIZ SCREEN ==================================== //
     results: function() {
         clearInterval(timer);
-        $('#main-section h3').remove();
+        $('.timeBoard h3').remove();
         $('#main-section').html('<h2>The magical trivia game is now OVER!</h2>')
         $('#main-section').append('<h3>Correct answers: ' + this.correct + '</h3>')
         $('#main-section').append('<h3>Incorrect answers: ' + this.incorrect + '</h3>')
         $('#main-section').append('<h3>Unanswered: ' + (questions.length-(this.incorrect+this.correct)) + '</h3>')
+        $('#main-section').append('<h3>You got </h3><h1 style="color:green">' + (100*(this.correct/questions.length)) + '%</h1>' + '<h3>right!</h3>')
+
     }
 }
-
+    
+    // TIME CONVERSION FUNCTION ===================================== //
+    function timeConverter(t) {
+        //  Takes the current time in seconds and convert it to minutes and seconds (m:ss).
+        var minutes = Math.floor(t / 60);
+        var seconds = t - (minutes * 60);
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        } if (minutes === 0) {
+            minutes = "0";
+        }
+        //     else if (minutes < 10) {
+        //     minutes = "0" + minutes;
+        // }
+        
+        return minutes + ":" + seconds;
+        }
+    
 // QUESTIONS ============================================== //
 
 var questions = [
